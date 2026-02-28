@@ -173,25 +173,28 @@ export interface Availability {
 // ─── AUDIT LOGS ───────────────────────────────────────────────────────────────
 export interface AuditLog {
   id: string;
-  tenantId?: string;
-  tenant_id?: string;
-  userId?: string;
-  user_id?: string;
   action: string;
-  resource?: string;
-  entity_type?: string;
-  resourceId?: string;
-  entity_id?: string;
-  beforeState?: Record<string, unknown>;
-  before_state?: Record<string, unknown>;
-  afterState?: Record<string, unknown>;
-  after_state?: Record<string, unknown>;
-  correlationId?: string;
-  correlation_id?: string;
-  ipAddress?: string;
-  ip_address?: string;
+
   createdAt?: string;
   created_at?: string;
+
+  entityType?: string;
+  entity_type?: string;
+
+  entityId?: string;
+  entity_id?: string;
+
+  correlationId?: string;
+  correlation_id?: string;
+
+  ipAddress?: string;
+  ip_address?: string;
+
+  beforeState?: Record<string, unknown> | null;
+  before_state?: Record<string, unknown> | null;
+
+  afterState?: Record<string, unknown> | null;
+  after_state?: Record<string, unknown> | null;
 }
 
 // ─── API ──────────────────────────────────────────────────────────────────────

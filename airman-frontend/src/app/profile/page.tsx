@@ -27,7 +27,7 @@ export default function ProfilePage() {
         <div className="flex items-center gap-5">
           <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold font-display"
             style={{ background: 'linear-gradient(135deg, rgba(74,114,196,0.3), rgba(46,82,163,0.2))', border: '1px solid rgba(74,114,196,0.35)' }}>
-            {getInitials(user.first_name, user.last_name)}
+            {getInitials(user.first_name ?? '', user.last_name ?? '')}
           </div>
           <div>
             <h2 className="font-display text-2xl font-bold text-white">

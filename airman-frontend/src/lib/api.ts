@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosError } from 'axios';
+import axios, { AxiosInstance, AxiosError, AxiosHeaders } from 'axios';
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
 
@@ -31,7 +31,12 @@ api.interceptors.response.use(
       if (isRefreshing) {
         return new Promise((resolve) => {
           refreshQueue.push((token) => {
-            if (original) original.headers = { ...original.headers, Authorization: `Bearer ${token}` };
+            if (original) if (original.headers) {
+  (original.headers as AxiosHeaders).set(
+    'Authorization',
+    `Bearer ${token}`
+  );
+}
             resolve(api(original!));
           });
         });

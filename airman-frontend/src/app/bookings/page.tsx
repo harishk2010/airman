@@ -187,8 +187,12 @@ export default function BookingsPage() {
                   <span className={`badge ${statusColor(booking.status)}`}>{booking.status.toUpperCase()}</span>
                 </div>
                 <div className="flex items-center gap-4 text-xs font-mono text-sky-400/50">
-                  <span>📅 {formatDateTime(booking.start_time)}</span>
-                  <span>→ {formatDateTime(booking.end_time)}</span>
+                  <span>
+  📅 {booking.start_time ? formatDateTime(booking.start_time) : '—'}
+</span>
+<span>
+  → {booking.end_time ? formatDateTime(booking.end_time) : '—'}
+</span>
                 </div>
                 {booking.instructor && (
                   <div className="text-xs text-sky-400/40 font-mono mt-0.5">
@@ -285,7 +289,7 @@ export default function BookingsPage() {
                     onClick={() => handleAssign(showAssign.id, inst.id)}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-900/20 border border-white/5 hover:border-sky-600/30 transition-all text-left">
                     <div className="w-8 h-8 rounded-lg bg-sky-800/30 flex items-center justify-center text-xs font-bold text-sky-300">
-                      {inst.first_name[0]}{inst.last_name[0]}
+                      {inst.first_name?.[0]}{inst.last_name?.[0]}
                     </div>
                     <div>
                       <div className="text-sm font-medium text-white">{inst.first_name} {inst.last_name}</div>
