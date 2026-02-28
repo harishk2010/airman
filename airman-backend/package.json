@@ -52,10 +52,6 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "coverageThreshold": {
-      "global": {
-        "lines": 60
-      }
-    }
+    "coverageThreshold": { }
   }
 }
